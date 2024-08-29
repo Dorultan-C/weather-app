@@ -21,16 +21,31 @@
             <div class="details">
                 <div class="col">
                     <img src="images/humidity.png" alt="humidity forecast updated api">
-                    <p class="humidity">50%</p>
+                    <div>
+                    <p class="humidity">50% </p>
                     <p>Humidity</p>
+                    </div>
                 </div>
                 <div class="col">
                     <img src="images/wind.png" alt="wind forecast updated api">
-                    <p class="wind">100km/h</p>
-                    <p>Wind</p>
+                    <div>
+                    <p class="wind">100 km/h</p>
+                    <p>Wind speed</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        const apiKey = 'e244328dfe7e0075a76492fe1dad86af';
+        const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?units=metric&q=london';
+        async function checkWeather() {
+            const response = await fetch(apiUrl + `&appid=${apiKey}`);
+            var data = await response.json();
+            console.log(data);
+        }
+        checkWeather();
+    </script>
 </body>
 </html>
